@@ -29,3 +29,17 @@ export async function cadastrarPaciente(paciente: Paciente){
     }
   
   }
+
+  export async function buscarConsultasPaciente(id: string){
+    if(!id) return null;
+  
+    try {
+      const resultado = await api.get(`/paciente/${id}/consultas`) // Faz a requisição para o servidor
+      return resultado.data
+    }
+    catch(error){
+      console.log(error)
+      return null
+    }
+  
+  }

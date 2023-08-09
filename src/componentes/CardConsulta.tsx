@@ -8,6 +8,7 @@ interface CardConsultaProps {
     data?: string;
     foiAtendido?: boolean;
     foiAgendado?: boolean;
+    onPress?: () => void;
 }
 
 export function CardConsulta({
@@ -17,6 +18,7 @@ export function CardConsulta({
     data,
     foiAtendido,
     foiAgendado,
+    onPress,
 }: CardConsultaProps) {
   return (
     <VStack w="100%" bg={foiAtendido ? "blue.100" : "white"} p="5" borderRadius="lg" shadow="2" mb={5}>
@@ -28,7 +30,7 @@ export function CardConsulta({
           <Text>{data}</Text>
         </VStack>
       </VStack>
-      <Botao mt={4}>
+      <Botao mt={4} onPress={onPress}>
         {foiAgendado ? "Cancelar" : "Agendar Consulta"}
       </Botao>
     </VStack>
